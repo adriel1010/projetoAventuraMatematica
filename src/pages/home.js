@@ -5,12 +5,15 @@ import {
     ImageBackground,
     Text,
     TouchableOpacity,
-    ActivityIndicator
+    ActivityIndicator, 
+    AsyncStorage, 
+    Dimensions
 } from 'react-native'
 
 import { Actions } from 'react-native-router-flux'
 
-import logo from '../assets/fundo4.png'
+// import logo from '../assets/normal4.png'
+import logo from '../assets/normal5.1.png'
 
 function Home() {
     const [loading, setLoading] = useState(true)
@@ -25,7 +28,12 @@ function Home() {
         load();
     })
 
-    function iniciar() {
+    async function iniciar() {
+        // try {
+        //     await AsyncStorage.setItem('desafio', '1');
+        //   } catch (error) {
+        //     // Error saving data
+        //   }
         Actions.apresentacao();
     }
 

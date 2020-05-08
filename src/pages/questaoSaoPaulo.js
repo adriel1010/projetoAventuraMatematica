@@ -10,7 +10,8 @@ import { Actions } from 'react-native-router-flux';
 export default class questaoSaoPaulo extends Component {
 
     onEnd() {
-        Actions.exercicioSaoPaulo();
+        // Actions.exercicioSaoPaulo();
+        Actions.desafio2();
     }
 
     onPrv() {
@@ -19,7 +20,7 @@ export default class questaoSaoPaulo extends Component {
     render() {
         return (
             <View>
-                <View style={{ flexDirection: 'row' }}>
+                {/* <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ width: 50 }} onPress={() => this.onPrv()}>
                         <Image source={prev} size={32} />
                     </TouchableOpacity>
@@ -27,14 +28,14 @@ export default class questaoSaoPaulo extends Component {
                     <TouchableOpacity style={{ width: 50, marginLeft: '75%' }} onPress={() => this.onEnd()}>
                         <Image source={next} size={32} />
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
                 <View >
                     <Video
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        source={{ uri: 'leonardo_saopaulo', type: 'mp4' }}
+                        source={{ uri: 'novo_leonardo', type: 'mp4' }}
                         style={style.backgroundVideo}
                         onEnd={() => this.onEnd()}
                     />

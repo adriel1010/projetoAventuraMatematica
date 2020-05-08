@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { StyleSheet, View, Dimensions, TouchableOpacity, Image, Text, ImageBackground, Alert } from 'react-native';
+import { StyleSheet, View, Dimensions, TouchableOpacity, Image, Text, ImageBackground, Alert, AsyncStorage } from 'react-native';
 import { WebView } from 'react-native-webview';
 import Video from 'react-native-video';
 import next from '../assets/next.png';
@@ -52,7 +52,14 @@ export default class ExercicioSaoPaulo extends Component {
                                     'Parabéns',
                                     `Parabéns, missão cumprida!`
                                 );
-                                Actions.menu();
+                                try {
+                                    await AsyncStorage.setItem('desafio', '3');
+                                } catch (error) {
+                                    // Error saving data
+                                }
+                                setTimeout(async () => {
+                                    Actions.menu();
+                                }, 500); 
                             }}
                         />
                         <Botao

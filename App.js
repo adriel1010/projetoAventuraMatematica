@@ -8,6 +8,10 @@ import {
 
 import Home from './src/pages/home'
 import Menu from './src/pages/menu'
+import Desafio1 from './src/pages/botao_desafio1'
+import Desafio2 from './src/pages/botao_desafio2'
+import Desafio3 from './src/pages/botao_desafio3'
+
 import Apresentacao from './src/pages/Apresentacao'
 import QuestaoCeara from './src/pages/questaoCeara'
 import questaoParana from './src/pages/questaoParana'
@@ -24,6 +28,9 @@ function App() {
       <Stack key='root'>
         <Scene key="home" component={Home} title='Inicio' initial hideNavBar />
         <Scene key="menu" component={Menu} title='Aventura Matemática' hideNavBar />
+        <Scene key="desafio1" component={Desafio1} title='Aventura Matemática' hideNavBar />
+        <Scene key="desafio2" component={Desafio2} title='Aventura Matemática' hideNavBar />
+        <Scene key="desafio3" component={Desafio3} title='Aventura Matemática' hideNavBar />
         <Scene key="exercicioCeara" component={ExercicioCeara} title='Aventura Matemática' hideNavBar /> 
         <Scene key="exercicioSaoPaulo" component={ExercicioSaoPaulo} title='Aventura Matemática' hideNavBar />  
         <Scene key="exercicioParana" component={ExercicioParana} title='Aventura Matemática' hideNavBar />  

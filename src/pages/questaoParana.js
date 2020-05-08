@@ -13,6 +13,7 @@ export default class questaoParana extends Component {
 
     onEnd() { 
         Actions.videoExtra();
+        
     }
  
     onPrv() {
@@ -22,7 +23,7 @@ export default class questaoParana extends Component {
     render() {
         return (
             <View>
-                <View style={{ flexDirection: 'row' }}>
+                {/* <View style={{ flexDirection: 'row' }}>
 
                     <TouchableOpacity style={{ width: 50 }} onPress={() => this.onPrv()}>
                         <Image source={prev} size={32} />
@@ -31,14 +32,14 @@ export default class questaoParana extends Component {
                     <TouchableOpacity style={{ width: 50, marginLeft: '75%' }} onPress={() => this.onEnd()}>
                         <Image source={next} size={32} />
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
                 <View >
                     <Video
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        source={{ uri: 'karin_parana', type: 'mp4' }}
+                        source={{ uri: 'nova_karin', type: 'mp4' }}
                         style={style.backgroundVideo}
                         onEnd={() => this.onEnd()}
                     />

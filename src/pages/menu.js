@@ -6,7 +6,10 @@ import {
     TouchableOpacity,
     StyleSheet,
     Image,
-    Text
+    Text,
+    Alert,
+    AsyncStorage,
+    Dimensions
 } from 'react-native'
 
 import map from '../assets/mapabrasil.png'
@@ -19,29 +22,48 @@ import { Actions } from 'react-native-router-flux';
 export default class Menu extends Component {
 
 
-    componentDidMount() {
-        // setTimeout(() => {
-        //     Actions.questaoCeara();
-        // }, 1000);
+    state = {
+        posicao: '',
+    }
 
+    async componentDidMount() {
         if (this.props.props == 'ceara') {
-            setTimeout(() => {
+            setTimeout(async () => {
                 Actions.exercicioCeara();
             }, 100);
 
-        } 
-        // else if (this.props.props == 'saopaulo') {
-        //     setTimeout(() => {
-        //         Actions.exercicioSaoPaulo();
-        //     }, 200);
-        // }  else if (this.props.props == 'parana') {
-        //     setTimeout(() => {
-        //         Actions.exercicioParana();
-        //     }, 200);
-        // }
+        }
+
+        const windowWidth = Dimensions.get('window').width;
+        const windowHeight = Dimensions.get('window').height;
+
+        // Alert.alert(
+        //     'Atenção',
+        //     `........ ` + windowWidth + ' -- ' + windowHeight
+        // );
+
+        try {
+            const value = await AsyncStorage.getItem('desafio');
+
+
+            if (value !== null) {
+                // We have data!!
+
+                this.setState({
+                    posicao: value,
+                });
+            }
+        } catch (error) {
+            Alert.alert(
+                'Atenção',
+                `........ ` + error
+            );
+        }
+
     }
 
     questaoCeara() {
+
         Actions.questaoCeara();
     }
 
@@ -60,12 +82,12 @@ export default class Menu extends Component {
                     <Image source={unblocked} height={10} />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={[styles.buttonSp]} onPress={() => this.questaoSaoPaulo()}>
-                    <Image source={blocked} height={10} />
+                <TouchableOpacity style={[styles.buttonSp]} disabled={this.state.posicao > 1 ? false : true} onPress={() => this.questaoSaoPaulo()}>
+                    <Image source={this.state.posicao > 1 ? unblocked : blocked} height={10} />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={[styles.buttonPr]} onPress={() => this.questaoCuritiba()}>
-                    <Image source={blocked} height={10} />
+                <TouchableOpacity style={[styles.buttonPr]} disabled={this.state.posicao > 2 ? false : true} onPress={() => this.questaoCuritiba()}>
+                    <Image source={this.state.posicao > 2 ? unblocked : blocked} height={10} />
                 </TouchableOpacity>
 
 
@@ -78,6 +100,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#FFF',
         flex: 1,
+        
     },
 
     containerMap: {
@@ -92,8 +115,8 @@ const styles = StyleSheet.create({
     },
 
     buttonPr: {
-        marginLeft: 200,
-        marginTop: -20,
+        marginLeft: Dimensions.get('window').width  > 360 ? 200 : 180,
+        marginTop: Dimensions.get('window').width  > 360 ? 0 : -20,
         paddingTop: 10,
         alignItems: 'center',
         justifyContent: 'center',
@@ -106,8 +129,8 @@ const styles = StyleSheet.create({
     },
 
     buttonSp: {
-        marginLeft: 220,
-        marginTop: 180,
+        marginLeft: Dimensions.get('window').width  > 360 ? 220 : 200,
+        marginTop: Dimensions.get('window').width  > 360 ? 200 : 140,
         paddingTop: 10,
         alignItems: 'center',
         justifyContent: 'center',
@@ -120,8 +143,8 @@ const styles = StyleSheet.create({
     },
 
     buttonCe: {
-        marginLeft: 320,
-        marginTop: 120,
+        marginLeft: Dimensions.get('window').width  > 360 ? 340 : 320,
+        marginTop: Dimensions.get('window').width  > 360 ? 180 : 120,
         paddingTop: 10,
         alignItems: 'center',
         justifyContent: 'center',
@@ -131,7 +154,7 @@ const styles = StyleSheet.create({
         // backgroundColor: '',
         elevation: 10,
         borderRadius: 50
-    },
+    }, 
 
     textButton: {
         color: '#FFF',

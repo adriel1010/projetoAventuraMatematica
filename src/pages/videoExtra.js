@@ -10,7 +10,8 @@ import prev from '../assets/prev.png';
 export default class videoExtra extends Component {
 
     onEnd() { 
-        Actions.exercicioParana();
+        // Actions.exercicioParana();
+        Actions.desafio3();
     }
 
     onPrv() {
@@ -22,13 +23,13 @@ export default class videoExtra extends Component {
             <View>
                 <View style={{ flexDirection: 'row' }}>
 
-                    <TouchableOpacity style={{ width: 50 }} onPress={() => this.onPrv()}>
+                    {/* <TouchableOpacity style={{ width: 50 }} onPress={() => this.onPrv()}>
                         <Image source={prev} size={32} />
                     </TouchableOpacity>
 
                     <TouchableOpacity style={{ width: 50, marginLeft: '75%' }} onPress={() => this.onEnd()}>
                         <Image source={next} size={32} />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                     <Text>Video extra</Text>
                 </View>
 

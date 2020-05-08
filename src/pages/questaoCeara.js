@@ -11,7 +11,8 @@ import { Actions } from 'react-native-router-flux';
 export default class QuestaoCeara extends Component {
 
     onEnd() { 
-        Actions.menu({ props: 'ceara' });
+        // Actions.menu({ props: 'ceara' });
+        Actions.desafio1();
     } 
     onPrv() { 
         Actions.menu();
@@ -19,7 +20,7 @@ export default class QuestaoCeara extends Component {
     render() {
         return (
             <View>
-                <View  style={{ flexDirection: 'row' }}>
+                {/* <View  style={{ flexDirection: 'row' }}>
                 <TouchableOpacity style={{ width: 50 }} onPress={() => this.onPrv()}>
                         <Image source={prev} size={32} />
                     </TouchableOpacity>
@@ -27,7 +28,7 @@ export default class QuestaoCeara extends Component {
                     <TouchableOpacity   style={{ width: 50, marginLeft: '75%' }} onPress={() => this.onEnd()}>
                         <Image source={next} size={32} />
                     </TouchableOpacity> 
-                </View>
+                </View> */}
 
                 <View >
                     <Video
