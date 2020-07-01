@@ -38,7 +38,7 @@ export default class videoExtra extends Component {
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        source={{ uri: 'novo', type: 'mp4' }}
+                        source={{ uri: 'sinais_carlos_desafio', type: 'mp4' }}
                         style={style.backgroundVideo}
                         onEnd={() => this.onEnd()}
                     />

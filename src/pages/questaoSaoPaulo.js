@@ -35,7 +35,7 @@ export default class questaoSaoPaulo extends Component {
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        source={{ uri: 'novo_leonardo', type: 'mp4' }}
+                        source={{ uri: 'leonardo_sinalizadoapp', type: 'mp4' }}
                         style={style.backgroundVideo}
                         onEnd={() => this.onEnd()}
                     />

@@ -35,7 +35,7 @@ export default class QuestaoCeara extends Component {
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        source={{ uri: 'vanessa_ceara', type: 'mp4' }}
+                        source={{ uri: 'vanessa_sinalizadoapp', type: 'mp4' }}
                         style={style.backgroundVideo}
                         onEnd={() => this.onEnd()}
                     />

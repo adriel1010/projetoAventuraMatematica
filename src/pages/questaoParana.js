@@ -39,7 +39,7 @@ export default class questaoParana extends Component {
                         ref={(ref) => {
                             this.player = ref
                         }}
-                        source={{ uri: 'nova_karin', type: 'mp4' }}
+                        source={{ uri: 'karin_sinalizadoapp', type: 'mp4' }}
                         style={style.backgroundVideo}
                         onEnd={() => this.onEnd()}
                     />
